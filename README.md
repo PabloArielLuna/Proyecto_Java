@@ -11,7 +11,7 @@ Aplicación backend desarrollada en Java para la gestión de productos y procesa
 
 ## Tecnologías Utilizadas
 - Java SE (JDK 17+)
-- IntelliJ IDEA Community Edition
+- IntelliJ IDEA
 
 ## Cómo ejecutar el proyecto
 1. Clonar el repositorio.
