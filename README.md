@@ -1,47 +1,137 @@
-TechLab Backend API (Spring Boot)
+# ☕ TechLab API | Backend Spring Boot
 
-API REST desarrollada con Java Spring Boot para el proyecto final del curso. Esta API gestiona el catálogo de productos, categorías, gestión de stock y procesamiento de pedidos.
+API REST desarrollada con **Java Spring Boot** para la gestión del sistema de ventas de **TechLab**.
 
-Tecnologías Utilizadas
+La aplicación administra productos, categorías, stock y pedidos, ofreciendo una arquitectura preparada para integrarse con un cliente React.
 
-Java 17+
+---
 
-Spring Boot
+# 🚀 Tecnologías utilizadas
 
-Spring Data JPA (Hibernate)
+- ☕ Java 17
+- 🌱 Spring Boot
+- 🗄️ Spring Data JPA (Hibernate)
+- 🐬 MySQL
+- 📦 Maven
 
-MySQL
+---
 
-Maven
+# ✨ Funcionalidades
 
-Funcionalidades Principales
+## 📦 Gestión de Productos
 
-Polimorfismo: Implementación de herencia en productos (Productos, Comida, Bebida) usando @Inheritance(strategy = InheritanceType.SINGLE_TABLE).
+- Alta de productos.
+- Consulta de productos.
+- Gestión de categorías.
 
-Gestión de Stock: Reducción automática de inventario al realizar un pedido.
+---
 
-REST API: Endpoints completos para gestión de productos y pedidos.
+## 🧬 Herencia y Polimorfismo
 
-Manejo de Errores: Control de excepciones para stock insuficiente o productos no encontrados.
+Implementación mediante:
 
-Configuración
+```java
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+```
 
-Configura tu base de datos MySQL creando el esquema techlab_db.
+Modelos disponibles:
 
-Actualiza los datos de conexión en src/main/resources/application.properties:
+- Producto
+- Comida
+- Bebida
 
+---
+
+## 📉 Gestión de Stock
+
+- Descuento automático al realizar una compra.
+- Validación de stock disponible.
+- Prevención de ventas sin inventario.
+
+---
+
+## 🛒 Gestión de Pedidos
+
+- Registro de compras.
+- Historial completo.
+- Integración con el frontend React.
+
+---
+
+## ⚠️ Manejo de Errores
+
+Control de excepciones para:
+
+- Producto inexistente.
+- Stock insuficiente.
+- Solicitudes inválidas.
+
+---
+
+# ⚙️ Configuración
+
+Crear una base de datos llamada:
+
+```text
+techlab_db
+```
+
+Editar el archivo:
+
+```text
+src/main/resources/application.properties
+```
+
+Configuración:
+
+```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/techlab_db
 spring.datasource.username=tu_usuario
 spring.datasource.password=tu_contraseña
 spring.jpa.hibernate.ddl-auto=update
+```
 
+---
 
-Ejecuta el proyecto desde IntelliJ IDEA o mediante Maven: ./mvnw spring-boot:run.
+# ▶️ Ejecución
 
-Endpoints Principales
+Desde IntelliJ IDEA
 
-GET /api/productos: Lista todos los productos.
+o mediante Maven:
 
-POST /api/pedidos: Registra una nueva compra (descuenta stock).
+```bash
+./mvnw spring-boot:run
+```
 
-GET /api/pedidos: Historial total de ventas (Panel Admin).
+---
+
+# 🌐 Endpoints principales
+
+| Método | Endpoint | Descripción |
+|---------|----------|-------------|
+| GET | `/api/productos` | Obtener todos los productos |
+| POST | `/api/pedidos` | Registrar una compra |
+| GET | `/api/pedidos` | Historial completo de ventas |
+
+---
+
+# 📁 Arquitectura
+
+```
+src
+├── controller
+├── service
+├── repository
+├── entity
+├── dto
+├── exception
+└── config
+```
+
+---
+
+# 👨‍💻 Autor Pablo Luna
+
+**Pablo Ariel Luna**
+
+Proyecto Final - Curso Full Stack Java
